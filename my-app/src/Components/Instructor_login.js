@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function Login(){
+function InstructorLogin(){
 
     const [user, setUser]= useState({
         username: "",
@@ -15,7 +15,7 @@ function Login(){
     return(
         <div className="App">
 
-            <h3>Login</h3>
+            <h3>Instructor Login</h3>
             <form>
                 <label htmlFor="username">User Name: </label>
                 <input
@@ -45,4 +45,4 @@ function Login(){
     )
 }
 
-export default Login;
+export default InstructorLogin;

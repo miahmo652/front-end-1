@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from "./Components/Login";
+import InstructorLogin from "./Components/Instructor_login";
+import ClientLogin from './Components/Client_Login';
+
 
 function App() {
   return (
@@ -9,7 +11,12 @@ function App() {
       <header className="App-header">
 
         <h1>ANYWHERE FITNESS</h1>
-        <Login />
+       
+
+        <InstructorLogin/>
+
+        <ClientLogin/>
+      
 
       </header>
     </div>
