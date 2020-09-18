@@ -9,6 +9,10 @@ function ClientLogin(){
 
     })
 
+    //setting up function to enter username and password
+    const handleChange = event => {
+        setClient({...client, [event.target.name]: event.target.value});
+    }
 
 
 
@@ -23,6 +27,9 @@ function ClientLogin(){
                     placeholder="Enter User Name"
                     name="username"
                     value={client.username}
+
+                    //added onChange to take input for username
+                    onChange={handleChange}
                     />
                 <br/>
                 <label htmlFor="password">Password: </label>
@@ -31,6 +38,9 @@ function ClientLogin(){
                     placeholder="Enter Password"
                     name="password"
                     value={client.password}
+
+                    //added onChange to take input for username
+                    onChange={handleChange}
                     />
 
                 <br/>    

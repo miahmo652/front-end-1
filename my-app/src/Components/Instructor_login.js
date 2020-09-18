@@ -3,13 +3,17 @@ import React, { useState } from "react";
 
 function InstructorLogin(){
 
-    const [user, setUser]= useState({
+    const [instructor, setInstructor]= useState({
         username: "",
         password: "",
+        
 
     })
 
-
+     // setting up function to enter username and password
+     const handleChange = event => {
+         setInstructor({...instructor, [event.target.name]: event.target.value});
+     }
 
 
     return(
@@ -22,7 +26,10 @@ function InstructorLogin(){
                     type="text"
                     placeholder="Enter User Name"
                     name="username"
-                    value={user.username}
+                    value={instructor.username}
+                    
+                    //added onChange to take input for username
+                    onChange={handleChange}
                     />
                 <br/>
                 <label htmlFor="password">Password: </label>
@@ -30,7 +37,10 @@ function InstructorLogin(){
                     type="password"
                     placeholder="Enter Password"
                     name="password"
-                    value={user.password}
+                    value={instructor.password}
+
+                    //added onchange to take input for password
+                    onChange={handleChange}
                     />
 
                 <br/>    
