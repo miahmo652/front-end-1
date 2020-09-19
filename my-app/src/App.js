@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
@@ -9,7 +9,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact="/" />
-          <Route exact="/Register" />
+          <Route exact="/users" />
+          <Route exact="/register" />
           <Route exact="/Login" />
         </Switch>
       </Router>
