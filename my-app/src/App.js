@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+// Material ui imports
+import { ThemeProvider } from "@material-ui/core";
+
+// Component Imports
+import HomePage from "./Components /Home_Components/HomePage";
+import Theme from "./Components /Home_Components/Theme";
+import RegistrationForm from "./Components /Login_Components/Registration";
+import LoginForm from "./Components /Login_Components/Login";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={Theme}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/users" />
+            <Route exact path="/register" component={RegistrationForm} />
+            <Route exact path="/Login" component={LoginForm} />
+          </Switch>
+        </Router>
+      </ThemeProvider>
     </div>
   );
 }
