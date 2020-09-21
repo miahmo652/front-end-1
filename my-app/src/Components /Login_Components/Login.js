@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     backgroundImage:
-      "url(https://images.unsplash.com/photo-1561214078-f3247647fc5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)",
+      "url(https://images.unsplash.com/photo-1561214083-9c3bd62fd8c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const classes = useStyles();
   return (
     <div>
@@ -70,17 +70,6 @@ const RegistrationForm = () => {
           <div className={classes.paper}>
             <Avatar className={classes.avatar} />
             <form className={classes.form} noValidate>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="name"
-                label="name"
-                type="name"
-                id="name"
-                autoComplete="current-password"
-              />
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -138,4 +127,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
