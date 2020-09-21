@@ -20,7 +20,7 @@ const HomePage = () => {
   const history = useHistory();
   const classes = useStyles;
   return (
-    <div>
+    <div onClick={() => history.push("/register")}>
       <React.Fragment>
         <CssBaseline />
         <br></br>
@@ -34,7 +34,7 @@ const HomePage = () => {
           </Typography>
         </Container>
         <Button variant="contained" color="primary" size="large">
-          Primary
+          Click Here To Get Started
         </Button>
       </React.Fragment>
     </div>
