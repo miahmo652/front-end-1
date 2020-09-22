@@ -1,7 +1,11 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import InstructorLogin from "./Components/Instructor_login";
+import ClientLogin from './Components/Client_Login';
+
+
 
 // Material ui imports
 import { ThemeProvider } from "@material-ui/core";
@@ -14,6 +18,7 @@ import LoginForm from "./Components /Login_Components/Login";
 function App() {
   return (
     <div className="App">
+
       <ThemeProvider theme={Theme}>
         <Router>
           <Switch>
@@ -24,6 +29,7 @@ function App() {
           </Switch>
         </Router>
       </ThemeProvider>
+
     </div>
   );
 }
