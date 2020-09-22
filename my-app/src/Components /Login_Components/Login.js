@@ -60,6 +60,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginForm = () => {
+  const [instructor, setInstructor] = useState({
+    username: "client3",
+    password: "password3",
+  });
+
   const classes = useStyles();
   return (
     <div>
