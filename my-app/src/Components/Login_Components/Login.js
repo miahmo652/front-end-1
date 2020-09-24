@@ -13,6 +13,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { axiosWithAuth } from "../../Utils/axiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,25 +53,32 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginForm = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   const [login, setLogin] = useState({
-    username: "client3",
-    password: "password3",
+    username: "",
+    password: "",
   });
+
+  const [isLoading, setIsLoading] = useState("");
 
   // helper functions
   const loggingIn = (e) => {
+    setIsLoading(true);
+
     axiosWithAuth()
-      .get("http://localhost5000/api/client/login")
+      .post(`/api/instructor/login`, login)
       .then((res) => {
         console.log("res", res);
-        localStorage.setItem("token", res.data.payload);
-        // Set up a route to push to once the client logs in successfully
+        localStorage.setItem("token", res.data.token);
+        console.log(res.data.token);
+        history.push("/InstructorLogin");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Login Error", err));
   };
 
   const changeHandler = (e) => {
+    e.preventDefault();
     setLogin({
       ...login,
       [e.target.name]: e.target.value,
@@ -126,6 +134,7 @@ const LoginForm = () => {
                 fullWidth
                 variant="contained"
                 color="primary"
+                className={classes.submit}
               >
                 Sign Up
               </Button>

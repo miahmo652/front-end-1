@@ -13,6 +13,7 @@ import RegistrationForm from "./Components/Login_Components/Registration";
 import LoginForm from "./Components/Login_Components/Login";
 import ClientLogin from "./Components/Login_Components/Client_Login";
 import InstructorLogin from "./Components/Login_Components/Client_Login";
+import InstructorClasses from "./Components/Classes_Components/InstructClass";
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,11 @@ function App() {
             <Route exact path="/Login" component={LoginForm} />
             <Route exact path="/LoginJack" component={ClientLogin} />
             <Route exact path="/InstructorJack" component={InstructorLogin} />
+            <Route
+              exact
+              path="/instructorClasses"
+              component={InstructorClasses}
+            />
           </Switch>
         </Router>
       </ThemeProvider>
