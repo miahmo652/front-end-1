@@ -7,12 +7,12 @@ import "./App.css";
 import { ThemeProvider } from "@material-ui/core";
 
 // Component Imports
-import HomePage from "./Components/Home_Components/HomePage";
-import Theme from "./Components/Home_Components/Theme";
-import RegistrationForm from "./Components/Login_Components/Registration";
-import LoginForm from "./Components/Login_Components/Login";
-import ClientLogin from "./Components/Login_Components/Client_Login";
-import InstructorLogin from "./Components/Login_Components/Instructor_login";
+import HomePage from "./Component/Home_Components/HomePage";
+import Theme from "./Component/Home_Components/Theme";
+import RegistrationForm from "./Component/Login_Components/Registration";
+import LoginForm from "./Component/Login_Components/Login";
+import ClientLogin from "./Component/Login_Components/Client_Login";
+import InstructorLogin from "./Component/Login_Components/Instructor_login";
 function App() {
   return (
     <div className="App">

@@ -1,5 +1,29 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
+const Button = styled.div`
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  background-color: #d6d5c9;
+  box-shadow: 2px 2px #d88144;
+  color: #2e2e2e;
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+
+const Input = styled.input`
+  width: 50%;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.2rem;
+  border-box: 1px solid, black;
+  border-radius: 5px;
+  text-allign: justify;
+
+  
+  `;
 
 function ClientLogin(){
 
@@ -22,7 +46,7 @@ function ClientLogin(){
             <h3>Client Login</h3>
             <form>
                 <label htmlFor="username">User Name: </label>
-                <input
+                <Input
                     type="text"
                     placeholder="Enter User Name"
                     name="username"
@@ -33,7 +57,7 @@ function ClientLogin(){
                     />
                 <br/>
                 <label htmlFor="password">Password: </label>
-                <input
+                <Input
                     type="password"
                     placeholder="Enter Password"
                     name="password"
@@ -45,7 +69,7 @@ function ClientLogin(){
 
                 <br/>    
 
-                 <button type="submit">Submit</button>   
+                 <Button type="submit">Submit</Button>   
 
             </form>
 
