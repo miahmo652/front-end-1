@@ -12,19 +12,8 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { axiosWithAuth } from "../../Utils/axiosWithAuth";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -61,6 +50,30 @@ const useStyles = makeStyles((theme) => ({
 
 const RegistrationForm = () => {
   const classes = useStyles();
+
+  const [instructor, setInstructor] = useState({
+    username: "client3",
+    password: "password3",
+  });
+
+  // helper functions
+  const loggingIn = (e) => {
+    axiosWithAuth()
+      .get("http://localhost5000/api/client/login")
+      .then((res) => {
+        console.log("res", res);
+        localStorage.setItem("token", res.data.payload);
+        // Set up a route to push to once the client logs in successfully
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const changeHandler = (e) => {
+    setInstructor({
+      ...instructor,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <div>
       <Grid container component="main" className={classes.root}>
@@ -69,30 +82,26 @@ const RegistrationForm = () => {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper}>
             <Avatar className={classes.avatar} />
-            <form className={classes.form} noValidate>
+            <form
+              onClick={() => loggingIn()}
+              className={classes.form}
+              noValidate
+            >
               <TextField
+                onChange={changeHandler}
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="name"
-                label="name"
-                type="name"
-                id="name"
-                autoComplete="current-password"
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+                value={instructor.username}
                 autoFocus
               />
               <TextField
+                onChange={changeHandler}
                 variant="outlined"
                 margin="normal"
                 required
@@ -101,6 +110,7 @@ const RegistrationForm = () => {
                 label="Password"
                 type="password"
                 id="password"
+                value={instructor.password}
                 autoComplete="current-password"
               />
 
