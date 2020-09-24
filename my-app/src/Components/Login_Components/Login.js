@@ -64,16 +64,15 @@ const LoginForm = () => {
 
   // helper functions
   const loggingIn = (e) => {
-    e.preventDefault();
     setIsLoading(true);
 
     axiosWithAuth()
-      .post(`https://fitnesssmaster.herokuapp.com/api/instructor/login`, login)
+      .post(`/api/instructor/login`, login)
       .then((res) => {
         console.log("res", res);
         localStorage.setItem("token", res.data.token);
         console.log(res.data.token);
-        history.pushState("/InstructorLogin");
+        history.push("/InstructorLogin");
       })
       .catch((err) => console.log("Login Error", err));
   };
